@@ -6,6 +6,7 @@ const Input = ({
   value,
   handleChange,
   placeholder,
+  required,
 }) => {
   return (
     <div className="mb-3">
@@ -18,6 +19,7 @@ const Input = ({
         value={value}
         onChange={handleChange}
         placeholder={placeholder}
+        required={required}
       />
     </div>
   );

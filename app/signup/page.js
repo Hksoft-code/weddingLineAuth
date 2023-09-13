@@ -8,6 +8,9 @@ import { CgCalendarDates } from "react-icons/cg";
 import { BsPhone } from "react-icons/bs";
 import Button from "@/components/Button";
 import LinkComponent from "@/components/Link";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/auth/firebase.auth";
+import { useRouter } from "next/navigation";
 
 const Signup = () => {
   const [state, setState] = React.useState({
@@ -20,10 +23,38 @@ const Signup = () => {
     phoneNum: "",
     gender: "",
   });
+  const [errorMessage, setErrorMessage] = React.useState("");
+  const router = useRouter();
 
   const handleChange = (event) =>
     setState({ ...state, [event.target.name]: event.target.value });
 
+  const handleClick = async (event) => {
+    event.preventDefault();
+    try {
+      const user = await createUserWithEmailAndPassword(
+        auth,
+        state.email,
+        state.password
+      );
+      if (!user) {
+        alert("Something went wrong, try again!");
+      }
+      router.replace(`/${user.user.uid}`);
+    } catch (error) {
+      setErrorMessage(error?.message);
+    }
+  };
+
+  const canSignup =
+    state.name &&
+    state.email &&
+    state.city &&
+    state.country &&
+    state.date &&
+    state.gender &&
+    state.password &&
+    state.phoneNum;
   return (
     <FormComponent>
       <div className="mt-1 pt-6">
@@ -48,6 +79,7 @@ const Signup = () => {
           name_="name"
           value={state.name}
           handleChange={handleChange}
+          required={true}
         />
         <Input
           placeholder="Email"
@@ -67,6 +99,7 @@ const Signup = () => {
           name_="email"
           value={state.email}
           handleChange={handleChange}
+          required={true}
         />
         <Input
           placeholder="Password"
@@ -86,6 +119,7 @@ const Signup = () => {
           name_="password"
           value={state.password}
           handleChange={handleChange}
+          required={true}
         />
         <Input
           placeholder="Event location(City)"
@@ -98,6 +132,7 @@ const Signup = () => {
           name_="city"
           value={state.city}
           handleChange={handleChange}
+          required={true}
         />
         <Input
           placeholder="Country"
@@ -110,6 +145,7 @@ const Signup = () => {
           name_="country"
           value={state.country}
           handleChange={handleChange}
+          required={true}
         />
         <Input
           placeholder="Event date"
@@ -129,6 +165,7 @@ const Signup = () => {
           name_="date"
           value={state.date}
           handleChange={handleChange}
+          required={true}
         />
         <Input
           placeholder="Phone number"
@@ -148,6 +185,7 @@ const Signup = () => {
           name_="phoneNum"
           value={state.phoneNum}
           handleChange={handleChange}
+          required={true}
         />
         <label>Gender</label>
         <select
@@ -155,6 +193,7 @@ const Signup = () => {
           name="gender"
           value={state.gender}
           onChange={handleChange}
+          required={true}
         >
           <option disabled={true}></option>
           <option>Male</option>
@@ -166,9 +205,12 @@ const Signup = () => {
           By clicking the signup button, you agree to <br /> the terms of use of
           wedding line
         </p>
+        <p className="mb-2 -mt-3 text-sm text-red-500">{errorMessage}</p>
         <Button
-          btn="mb-4 p-3 w-[300px] bg-red-500 text-center rounded-md outline-none font-semibold text-white hover:opacity-50"
+          btn="mb-4 p-3 w-[300px] bg-red-500 text-center rounded-md outline-none font-semibold text-white hover:opacity-80"
           label="Sign up"
+          // disabled={!canSignup}
+          handleClick={handleClick}
         />
         <p className="mb-6 text-center">
           Already have an account?{" "}

@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-import "@/auth/firebase.auth";
+import { app } from "@/auth/firebase.auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
