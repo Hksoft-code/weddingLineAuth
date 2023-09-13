@@ -1,5 +1,11 @@
-const Login = () => {
-  return <div>Login</div>;
+import Login from "@/pages/Login";
+
+const Page = () => {
+  return (
+    <>
+      <Login />
+    </>
+  );
 };
 
-export default Login;
+export default Page;
