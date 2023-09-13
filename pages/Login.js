@@ -1,11 +1,48 @@
+"use client";
+
+import React from "react";
+import { auth } from "@/auth/firebase.auth";
 import Accounts from "@/components/Accounts";
 import Button from "@/components/Button";
 import FormComponent from "@/components/FormComponent";
 import Input from "@/components/Input";
 import LinkComponent from "@/components/Link";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "next/navigation";
 import { AiOutlineLock, AiOutlineMail } from "react-icons/ai";
 
 const Login = () => {
+  const [state, setState] = React.useState({
+    email: "",
+    password: "",
+  });
+  const [error, setError] = React.useState("");
+  const router = useRouter();
+
+  const handleChange = (event) =>
+    setState({ ...state, [event.target.name]: event.target.value });
+
+  const handleSignin = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await signInWithEmailAndPassword(
+        auth,
+        state.email,
+        state.password
+      );
+      if (!response) {
+        alert("Something went wrong or check your credentials and try again!!");
+      }
+      router.replace(`/${response.user.uid}`);
+    } catch (error) {
+      let error_ = error?.message.split("/")[1];
+      error_ = String(error_).split(")")[0];
+      setError(error_.replace("-", " "));
+    }
+  };
+
+  const canLogin = state.email && state.password;
+
   return (
     <FormComponent>
       <div className="p-2 m-2 mx-auto flex flex-col justify-center items-center">
@@ -41,6 +78,9 @@ const Login = () => {
               paddingLeft: 25,
             }}
             type="email"
+            name_="email"
+            value={state.email}
+            handleChange={handleChange}
           />
           <Input
             placeholder="Password"
@@ -57,10 +97,16 @@ const Login = () => {
               paddingLeft: 25,
             }}
             type="password"
+            name_="password"
+            value={state.password}
+            handleChange={handleChange}
           />
+          <p className="text-sm text-red-600 ml-3 w-[300px]">{error}</p>
           <Button
             btn="bg-red-500 p-3 text-white font-semibold rounded-md mt-2 m-2 w-full"
             label="Log In"
+            handleClick={handleSignin}
+            disabled={!canLogin}
           />
         </form>
       </div>
