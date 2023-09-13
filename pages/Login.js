@@ -57,7 +57,7 @@ const Login = () => {
             />
           </p>
         </div>
-        <Accounts />
+        <Accounts disabled={true} />
         <form
           className="mt-4 pt-4 w-full"
           style={{ borderTop: "1px solid rgba(0, 0, 0, .3)" }}
