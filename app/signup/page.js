@@ -45,6 +45,9 @@ const Signup = () => {
             paddingLeft: 25,
           }}
           type="text"
+          name_="name"
+          value={state.name}
+          handleChange={handleChange}
         />
         <Input
           placeholder="Email"
@@ -61,6 +64,9 @@ const Signup = () => {
             paddingLeft: 25,
           }}
           type="email"
+          name_="email"
+          value={state.email}
+          handleChange={handleChange}
         />
         <Input
           placeholder="Password"
@@ -77,6 +83,9 @@ const Signup = () => {
             paddingLeft: 25,
           }}
           type="password"
+          name_="password"
+          value={state.password}
+          handleChange={handleChange}
         />
         <Input
           placeholder="Event location(City)"
@@ -86,6 +95,9 @@ const Signup = () => {
             paddingLeft: 5,
           }}
           type="text"
+          name_="city"
+          value={state.city}
+          handleChange={handleChange}
         />
         <Input
           placeholder="Country"
@@ -95,6 +107,9 @@ const Signup = () => {
             paddingLeft: 5,
           }}
           type="text"
+          name_="country"
+          value={state.country}
+          handleChange={handleChange}
         />
         <Input
           placeholder="Event date"
@@ -111,6 +126,9 @@ const Signup = () => {
             paddingLeft: 25,
           }}
           type="date"
+          name_="date"
+          value={state.date}
+          handleChange={handleChange}
         />
         <Input
           placeholder="Phone number"
@@ -127,12 +145,21 @@ const Signup = () => {
             paddingLeft: 25,
           }}
           type="number"
+          name_="phoneNum"
+          value={state.phoneNum}
+          handleChange={handleChange}
         />
         <label>Gender</label>
-        <select className="p-1 outline-none">
-          <option disabled={true}>Male</option>
-          <option disabled={true}>Female</option>
-          <option disabled={true}>Other</option>
+        <select
+          className="p-1 outline-none"
+          name="gender"
+          value={state.gender}
+          onChange={handleChange}
+        >
+          <option disabled={true}></option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
         </select>
         <br />
         <p className="text-sm mt-3 mb-4" style={{ color: "rgba(0, 0, 0, .4)" }}>
