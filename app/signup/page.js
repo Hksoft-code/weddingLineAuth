@@ -213,7 +213,9 @@ const Signup = () => {
           handleClick={handleClick}
         />
         <p className="mb-6 text-center">
-          Already have an account?{" "}
+          <span className="text-white lg:text-black">
+            Already have an account?
+          </span>{" "}
           <LinkComponent
             class_name="text-semibold text-red-500"
             label="Login"
