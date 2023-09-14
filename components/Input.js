@@ -14,7 +14,7 @@ const Input = ({
       <input
         type={type}
         name={name_}
-        className="p-2 m-2 border-0 outline-none rounded-sm"
+        className="p-2 m-2 border-0 outline-none rounded-sm opacity-50 lg:opacity-100"
         style={style}
         value={value}
         onChange={handleChange}

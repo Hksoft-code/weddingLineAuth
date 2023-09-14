@@ -152,7 +152,7 @@ const Signup = () => {
           icon={
             <CgCalendarDates
               size={20}
-              className="absolute m-1 ml-2 mt-[15px]"
+              className="absolute m-1 ml-2 mt-[20px]"
               fill="rgba(0, 0, 0, .6)"
             />
           }
@@ -172,7 +172,7 @@ const Signup = () => {
           icon={
             <BsPhone
               size={20}
-              className="absolute m-1 ml-2 mt-[12px]"
+              className="absolute m-1 ml-2 mt-[17px]"
               fill="rgba(0, 0, 0, .6)"
             />
           }
@@ -187,7 +187,7 @@ const Signup = () => {
           handleChange={handleChange}
           required={true}
         />
-        <label>Gender</label>
+        <label className="text-white lg:text-black mr-1">Gender</label>
         <select
           className="p-1 outline-none"
           name="gender"
@@ -195,7 +195,7 @@ const Signup = () => {
           onChange={handleChange}
           required={true}
         >
-          <option disabled={true}></option>
+          <option disabled={true}>Gender</option>
           <option>Male</option>
           <option>Female</option>
           <option>Other</option>
