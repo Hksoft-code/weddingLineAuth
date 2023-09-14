@@ -58,7 +58,7 @@ const Signup = () => {
   return (
     <FormComponent>
       <div className="mt-1 pt-6">
-        <h2 className="font-semibold mb-4 text-xl text-center">
+        <h2 className="font-semibold mb-4 text-xl text-center text-white lg:text-black">
           Create a free account here
         </h2>
         <Input
