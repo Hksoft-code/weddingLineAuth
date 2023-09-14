@@ -16,3 +16,44 @@
 input::placeholder {
   color: #000;
 }
+
+@media only screen and (max-width: 1023px) {
+  .container-content {
+    background-image: url('../public/wedding.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  .container-content {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .input-content {
+    width: 230px;
+  }
+  .form-content {
+    margin-left: 30px;
+  }
+  .form-button {
+    margin-left: 35px;
+    width: 230px;
+  }
+  .container {
+    overflow-x: hidden;
+  }
+}
+
+@media only screen and (min-width: 350px) {
+  .input-content {
+    width: 300px;
+  }
+  .form-button {
+    width: 300px;
+  }
+}
+

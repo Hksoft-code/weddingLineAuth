@@ -66,7 +66,7 @@ const Signup = () => {
           icon={
             <AiOutlineUser
               size={20}
-              className="absolute m-1 ml-2 mt-[12px]"
+              className="absolute m-1 ml-2 mt-[17px]"
               fill="rgba(0, 0, 0, .6)"
             />
           }
@@ -86,7 +86,7 @@ const Signup = () => {
           icon={
             <AiOutlineMail
               size={20}
-              className="absolute m-1 ml-2 mt-[14px]"
+              className="absolute m-1 ml-2 mt-[19px]"
               fill="rgba(0, 0, 0, .6)"
             />
           }
@@ -106,7 +106,7 @@ const Signup = () => {
           icon={
             <AiOutlineLock
               size={20}
-              className="absolute m-1 ml-2 mt-[12px]"
+              className="absolute m-1 ml-2 mt-[17px]"
               fill="rgba(0, 0, 0, .6)"
             />
           }

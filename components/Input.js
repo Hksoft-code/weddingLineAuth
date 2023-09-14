@@ -9,12 +9,12 @@ const Input = ({
   required,
 }) => {
   return (
-    <div className="mb-3">
+    <div className="mb-1 input-content form-content">
       {icon}
       <input
         type={type}
         name={name_}
-        className="p-1 m-2 border-0 outline-none"
+        className="p-2 m-2 border-0 outline-none rounded-sm"
         style={style}
         value={value}
         onChange={handleChange}

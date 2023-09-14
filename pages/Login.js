@@ -47,8 +47,11 @@ const Login = () => {
     <FormComponent>
       <div className="p-2 m-2 mx-auto flex flex-col justify-center items-center">
         <div className="m-2">
-          <h2>Log into your account</h2>
-          <p style={{ color: "rgba(0, 0, 0, .4)", fontSize: 13 }}>
+          <h2 className="text-white lg:text-black">Log into your account</h2>
+          <p
+            style={{ fontSize: 13 }}
+            className="text-white lg:text-black shadow-teal-50"
+          >
             Don't have an account?{" "}
             <LinkComponent
               class_name="text-red-500 font-semibold text-base"
@@ -59,7 +62,7 @@ const Login = () => {
         </div>
         <Accounts disabled={true} />
         <form
-          className="mt-4 pt-4 w-full"
+          className="mt-4 pt-4 sm:w-full -ml-4"
           style={{ borderTop: "1px solid rgba(0, 0, 0, .3)" }}
         >
           <p className="mb-2 text-center">Or login with your email</p>
@@ -68,7 +71,7 @@ const Login = () => {
             icon={
               <AiOutlineMail
                 size={20}
-                className="absolute m-1 ml-2 mt-[14px]"
+                className="absolute ml-2 mt-[19px]"
                 fill="rgba(0, 0, 0, .6)"
               />
             }
@@ -87,7 +90,7 @@ const Login = () => {
             icon={
               <AiOutlineLock
                 size={20}
-                className="absolute m-1 ml-2 mt-[12px]"
+                className="absolute m-1 ml-2 mt-[19px]"
                 fill="rgba(0, 0, 0, .6)"
               />
             }
@@ -103,7 +106,7 @@ const Login = () => {
           />
           <p className="text-sm text-red-600 ml-3 w-[300px]">{error}</p>
           <Button
-            btn="bg-red-500 p-3 text-white font-semibold rounded-md mt-2 m-2 w-full"
+            btn="bg-red-500 p-3 text-white font-semibold rounded-md mt-2 m-2 w-full form-button"
             label="Log In"
             handleClick={handleSignin}
             disabled={!canLogin}
